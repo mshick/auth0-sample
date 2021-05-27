@@ -6,7 +6,7 @@ import { getConfig } from "../config";
 import Loading from "../components/Loading";
 
 export const ExternalApiComponent = () => {
-  const { apiOrigin = "http://localhost:3000", audience } = getConfig();
+  const { apiOrigin, audience } = getConfig();
 
   const [state, setState] = useState({
     showResult: false,
@@ -55,19 +55,17 @@ export const ExternalApiComponent = () => {
     try {
       const token = await getAccessTokenSilently();
 
-      const data =
-        '{"query":"query {\\n  getMyProfile {\\n    id\\n    name\\n    description\\n  }\\n}","variables":{"terms":"","sort":{"field":"_updatedAt","order":"desc"},"from":0,"size":20,"onlyEnabled":false}}';
+      const data = {
+        query: "{getMyProfile {id,fullName,bio}}",
+      };
 
-      const response = await fetch(
-        `${apiOrigin}/project/4a0614fc-9519-4dbe-976a-99622dc4fe37/v3/graphql`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          body: data,
-        }
-      );
+      const response = await fetch(apiOrigin, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+      });
 
       const responseData = await response.json();
 

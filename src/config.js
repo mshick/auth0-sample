@@ -15,7 +15,8 @@ export function getConfig() {
   return {
     domain: configJson.domain,
     clientId: configJson.clientId,
-    scope: "takeshapeRole:auth0",
+    scope: configJson.scope,
+    apiOrigin: configJson.apiOrigin,
     ...(audience ? { audience } : null),
   };
 }

@@ -21,7 +21,7 @@ const providerConfig = {
   domain: config.domain,
   clientId: config.clientId,
   ...(config.audience ? { audience: config.audience } : null),
-  scope: "openid profile email takeshapeRole:auth0",
+  scope: `openid profile email ${config.scope}`,
   redirectUri: window.location.origin,
   onRedirectCallback,
 };
