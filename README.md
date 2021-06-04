@@ -1,7 +1,7 @@
 # FOR TAKESHAPE PR TESTING
 
 1. Create an Auth0 account.
-2. Create an Auth0 application (Applications > Applications), be sure to provide `http://localhost:3010` to Allowed Callback URLs, Allowed Logout URLs and Allowed Web Origins
+2. Create an Auth0 application (Applications > Applications). Choose Single Page Application. Token Endpoint Authentication Method should be set to `none`. Be sure to provide `http://localhost:3010` to Allowed Callback URLs, Allowed Logout URLs and Allowed Web Origins.
 3. Create an Auth0 service in your TakeShape project. Use your Auth0 domain and provide an ID. Copy the `audience` from the TakeShape config screen. Save the service.
 4. Create an Auth0 API (Applications > APIs). Use the audience you copied from the TakeShape UI.
 5. Add a scope to the Auth0 API config to grant a takeshape role. Use a builtin, so add, `takeshapeRole:read`.
