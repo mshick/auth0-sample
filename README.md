@@ -13,7 +13,7 @@
   "clientId": "YOUR_AUTH0_CLIENT_ID",
   "audience": "YOUR_AUDIENCE_FROM_TAKESHAPE",
   "apiOrigin": "YOUR_API_ORIGIN",
-  "scope": "takeshapeRole:read"
+  "scope": "takeshape:read"
 }
 ```
 
